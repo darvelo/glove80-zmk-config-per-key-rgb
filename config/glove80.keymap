@@ -119,6 +119,14 @@
     };
 };
 
+// Deep Sleep support
+/ {
+    kscan: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
+        wakeup-source;
+    };
+};
 
 /* Glove80 system behavior & macros */
 / {
@@ -350,23 +358,9 @@
 /* Custom Defined Behaviors */
 / {
     behaviors {
-//        layer_key: layer_key {
-//            compatible = "zmk,behavior-tap-dance";
-//            tapping-term-ms = <200>;
-//            #binding-cells = <2>;
-//            bindings = <&to>, <&kp>;
-//        };
-        photoshop_hold: photoshop_hold {
+        layer_hold: layer_hold {
             compatible = "zmk,behavior-hold-tap";
-            label = "PHOTOSHOP_HOLD_TAP";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <1000>;
-            bindings = <&to>, <&kp>;
-        };
-        blender_hold: blender_hold {
-            compatible = "zmk,behavior-hold-tap";
-            label = "BLENDER_HOLD_TAP";
+            label = "LAYER_HOLD_TAP";
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <1000>;
@@ -384,12 +378,13 @@
             #binding-cells = <0>;
             bindings = <&mo HIGHER>, <&to HIGHER>;
         };
-//        raise: tt_raise {
-//            compatible = "zmk,behavior-tap-dance";
-//            tapping-term-ms = <200>;
-//            #binding-cells = <0>;
-//            bindings = <&mo HIGHER>, <&to HIGHER>;
-//        };
+        photoshop_eraser: photoshop_eraser {
+            compatible = "zmk,behavior-hold-tap";
+            tapping-term-ms = <125>;
+            flavor = "tap-preferred";
+            #binding-cells = <0>;
+            bindings = <&kp GRAVE>, <&kp E>;
+        };
     };
 
 };
@@ -397,14 +392,6 @@
 /* Automatically generated macro definitions */
 / {
     macros {
-        layer_to_tap: layer_to_tap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MAGIC_HOLD_TAP";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&to>, <&kp>;
-        };
     };
 };
 
@@ -424,9 +411,8 @@
 //            >;
 //        };
 
-        // &caps_word
-        // &key_repeat
-
+        // MEH  = ctrl + shift + alt
+        // HYPR = ctrl + shift + alt + gui
         default_layer {
             display-name = "Mac";
             // -----------------------------------------------------------------------------------------------------------------------------------------
@@ -438,13 +424,12 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-            &photoshop_hold PHOTOSHOP C_MUTE &blender_hold BLENDER C_PP &media_prev_next  &kp C_VOL_DN &kp C_VOL_UP                            &kp C_BRI_DN &kp C_BRI_UP   &kp F8   &kp F9   &kp F10
-
-            &kp EQUAL      &kp N1      &kp N2  &kp N3   &kp N4    &kp N5                                                                &kp N6 &kp N7   &kp N8    &kp N9   &kp N0   &kp MINUS
-            &kp TAB        &kp Q       &kp W   &kp E    &kp R     &kp T                                                                 &kp Y  &kp U    &kp I     &kp O    &kp P    &kp BSLH
-            &kp ESC        &kp A       &kp S   &kp D    &kp F     &kp G                                                                 &kp H  &kp J    &kp K     &kp L    &kp SEMI &kp SQT
-            &kp GRAVE      &kp Z       &kp X   &kp C    &kp V     &kp B  &kp LSHFT  &kp LCTRL &higher      &kp LGUI &kp RCTRL &kp RGUI  &kp N  &kp M    &kp COMMA &kp DOT  &kp FSLH &kp PG_UP
-            &magic MAGIC 0 &caps_word  &kp END &kp LBKT &kp LBRC         &kp SPACE  &kp DEL   &kp LALT     &kp RALT &kp RET   &kp BSPC         &kp RBRC &kp RBKT  &kp LBKT &kp RBKT &kp PG_DN
+            &layer_hold PHOTOSHOP C_MUTE &layer_hold BLENDER C_PP &media_prev_next &kp C_VOL_DN &kp C_VOL_UP                                                                             &kp C_BRI_DN &kp C_BRI_UP &kp F8   &kp F9   &kp F10
+            &kp EQUAL                    &kp N1                   &kp N2           &kp N3       &kp N4       &kp N5                                                               &kp N6 &kp N7       &kp N8       &kp N9   &kp N0   &kp MINUS
+            &kp TAB                      &kp Q                    &kp W            &kp E        &kp R        &kp T                                                                &kp Y  &kp U        &kp I        &kp O    &kp P    &kp BSLH
+            &kp ESC                      &kp A                    &kp S            &kp D        &kp F        &kp G                                                                &kp H  &kp J        &kp K        &kp L    &kp SEMI &kp SQT
+            &kp GRAVE                    &kp Z                    &kp X            &kp C        &kp V        &kp B  &kp LSHFT  &kp LCTRL &higher      &kp LGUI &kp RCTRL &kp RGUI &kp N  &kp M        &kp COMMA    &kp DOT  &kp FSLH &kp PG_UP
+            &magic MAGIC 0               &caps_word               &key_repeat      &kp LBKT     &kp LBRC            &kp SPACE  &kp DEL   &kp LALT     &kp RALT &kp RET   &kp BSPC        &kp RBRC     &kp RBKT     &kp LBKT &kp RBKT &kp PG_DN
             >;
         };
 
@@ -460,8 +445,10 @@
             >;
         };
 
-//        empty_layer {
-//            display-name = "Empty";
+//        just to use as a template
+//        the reason being that defaulting to &none prevents accidentally activating keys due to active underlying layers being dependent on what layers I've activated at that point in time.
+//        template_layer {
+//            display-name = "Template";
 //            bindings = <
 //            &none &none &none &none &none                                                 &none &none &none &none &none
 //            &none &none &none &none &none &none                                     &none &none &none &none &none &none
@@ -472,53 +459,65 @@
 //            >;
 //        };
 
+        // Photoshop
+        // cmd + d - deselect selection
+        // cmd + j - layer via copy
+        // cmd + , - hide layer
+        // alt + [ - cycle visible layers backward
+        // alt + ] - cycle visible layers foreward
+        // cmd + t - free transform selection
+        // cmd + backspace - fill selection
+        // hold grave - erase with current brush
+        // cmd + y  - View > Proof Colors (to see color values only)
+        //
+        // My custom shortcuts:
+        // cmd + alt + f - Flip Canvas Horizontally
         photoshop_layer {
             display-name = "Photoshop";
             bindings = <
-            &none &none &none &none &none                                                   &none &none &none &none &none
-            &none &none &none &none &none &none                                       &none &none &none &none &none &none
-            &none &none &none &none &none &none                                       &none &none &none &none &none &none
-            &none &none &none &none &none &none                                       &none &none &none &none &none &none
-            &none &none &none &none &none &none &none &none &to MAC &none &none &none &none &none &none &none &none &none
-            &magic MAGIC 0 &none &none &none &none       &none &none &none   &none &none &none       &none &none &none &none &none
+            &none          &none        &kp LG(T)     &kp F             &kp LG(Y)                                                                                       &none &none &none &none &none
+            &kp DEL        &kp LG(J)    &kp LG(COMMA) &kp LA(RBRC)      &kp LA(LBRC)  &kp U                                                                       &none &none &none &none &none &none
+            &kp ESC        &kp LG(C)    &kp LG(D)     &kp SPACE         &kp LG(Z)     &kp LG(LS(Z))                                                               &none &none &none &none &none &none
+            &kp LS(M)      &kp L        &kp V         &photoshop_eraser &kp B         &kp LALT                                                                    &none &none &none &none &none &none
+            &mt LCTRL F5   &kp LGUI     &kp LG(A)     &kp R             &kp Z         &kp LG(V)     &higher      &kp LG(S) &to MAC              &none &none &none &none &none &none &none &none &none
+            &magic MAGIC 0 &kp LG(BSPC) &kp LG(X)     &kp LG(LS(N))     &kp LG(LA(F))               &kp LC(LALT) &kp RBRC  &mt LC(LALT) RET     &none &none &none       &none &none &none &none &none
             >;
         };
 
+        // needed: period/dot (median/origin point), p for parenting, n key to open/close tool menu, m to add marker in timeline and join vertices (alt+m), h for hide, j to join
         blender_layer {
             display-name = "Blender";
             bindings = <
-            &none &none &none &none &none                                                   &none &none &none &none &none
-            &none &none &none &none &none &none                                       &none &none &none &none &none &none
-            &none &none &none &none &none &none                                       &none &none &none &none &none &none
-            &none &none &none &none &none &none                                       &none &none &none &none &none &none
-            &none &none &none &none &none &none &none &none &to MAC &none &none &none &none &none &none &none &none &none
-            &magic MAGIC 0 &none &none &none &none       &none &none &none   &none &none &none       &none &none &none &none &none
+            &kp U          &kp J   &kp I  &kp L  &kp N                                                                                &none &none &none &none &none
+            &kp Y          &trans  &trans &trans &trans &trans                                                                  &none &none &none &none &none &none
+            &kp TAB        &trans  &trans &trans &trans &trans                                                                  &none &none &none &none &none &none
+            &kp ESC        &trans  &trans &trans &trans &trans                                                                  &none &none &none &none &none &none
+            &kp P          &trans  &trans &trans &trans &trans &higher    &kp LC(LA(KP_N0) &to MAC            &none &none &none &none &none &none &none &none &none
+            &magic MAGIC 0 &kp DOT &kp H  &kp O  &kp M         &kp LSHIFT &kp LCTL         &mt LALT SPACE     &none &none &none       &none &none &none &none &none
             >;
         };
 
         higher_layer {
             display-name = "Higher";
             bindings = <
-            &kp F1 &kp F2       &kp F3          &kp F4        &kp F5                                                                      &kp F6      &kp F7       &kp F8       &kp F9 &kp F10
-            &none  &kp KP_DOT   &kp KP_MULTIPLY &kp KP_DIVIDE &kp KP_EQUAL &kp LPAR                                              &none    &none       &none        &none        &none  &kp PSCRN
-            &none  &kp KP_MINUS &kp KP_N7       &kp KP_N8     &kp KP_N9    &kp RPAR                                              &none    &kp HYPR(W) &kp HYPR(E)  &kp HYPR(UP) &none  &kp SLCK
-            &none  &kp KP_PLUS  &kp KP_N4       &kp KP_N5     &kp KP_N6    &kp PRCNT                                             &kp LEFT &kp DOWN    &kp UP       &kp RIGHT    &none  &none
-            &none  &kp KP_ENTER &kp KP_N1       &kp KP_N2     &kp KP_N3    &kp COMMA &none &none &to MAC     &none  &none  &none &none    &none       &none        &none        &none  &none
-            &magic MAGIC 0  &kp KP_ENTER &kp KP_N0       &kp KP_N0     &kp KP_DOT             &none &none &none       &none  &none  &none          &none       &none        &none        &none  &none
+            &kp F1         &kp F2       &kp F3          &kp F4        &kp F5                                                                      &kp F6      &kp F7      &kp F8       &kp F9 &kp F10
+            &none          &kp KP_DOT   &kp KP_MULTIPLY &kp KP_DIVIDE &kp KP_EQUAL &kp LPAR                                              &none    &none       &none       &none        &none  &kp PSCRN
+            &none          &kp KP_MINUS &kp KP_N7       &kp KP_N8     &kp KP_N9    &kp RPAR                                              &none    &kp HYPR(W) &kp HYPR(E) &kp HYPR(UP) &none  &kp SLCK
+            &none          &kp KP_PLUS  &kp KP_N4       &kp KP_N5     &kp KP_N6    &kp PRCNT                                             &kp LEFT &kp DOWN    &kp UP      &kp RIGHT    &none  &none
+            &none          &kp KP_ENTER &kp KP_N1       &kp KP_N2     &kp KP_N3    &kp COMMA &none &none &to MAC     &none  &none  &none &none    &none       &none       &none        &none  &none
+            &magic MAGIC 0 &kp KP_ENTER &kp KP_N0       &kp KP_N0     &kp KP_DOT             &none &none &none       &none  &none  &none          &none       &none       &none        &none  &none
             >;
         };
-
-        // Blender2 was just for KC_U, KC_J, KC_O, and LCTL(LALT(KC_KP_0))
 
         magic_layer {
             display-name = "Magic";
             bindings = <
-            &bt BT_CLR    &none           &none           &none           &none                                                                               &none  &none  &none  &none  &bt BT_CLR_ALL
-            &none         &none           &none           &none           &none           &none                                                        &none  &none  &none  &none  &none  &none
-            &none         &rgb_ug RGB_SPI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG                                              &none  &none  &none  &none  &none  &none
-            &bootloader   &rgb_ug RGB_SPD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_EFF                                              &none  &none  &none  &none  &none  &bootloader
-            &sys_reset    &none           &none           &none           &none           &none           &bt_2 &bt_3 &to MAC      &none &none &none   &none  &none  &none  &none  &none  &sys_reset
-            &none         &none           &none           &none           &none                           &bt_0 &bt_1 &out OUT_USB &none &none &none          &none  &none  &none  &none  &none
+            &bt BT_CLR  &none           &none           &none           &none                                                                            &none &none &none &none &bt BT_CLR_ALL
+            &none       &none           &none           &none           &none           &none                                                      &none &none &none &none &none &none
+            &none       &rgb_ug RGB_SPI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG                                            &none &none &none &none &none &none
+            &bootloader &rgb_ug RGB_SPD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_EFF                                            &none &none &none &none &none &bootloader
+            &sys_reset  &none           &none           &none           &none           &none           &bt_2 &bt_3 &to MAC      &none &none &none &none &none &none &none &none &sys_reset
+            &none       &none           &none           &none           &none                           &bt_0 &bt_1 &out OUT_USB &none &none &none       &none &none &none &none &none
             >;
         };
 
