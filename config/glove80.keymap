@@ -492,8 +492,8 @@
             &kp Y          &trans  &trans &trans &trans &trans                                                                  &none &none &none &none &none &none
             &kp TAB        &trans  &trans &trans &trans &trans                                                                  &none &none &none &none &none &none
             &kp ESC        &trans  &trans &trans &trans &trans                                                                  &none &none &none &none &none &none
-            &kp P          &trans  &trans &trans &trans &trans &higher    &kp LC(LA(KP_N0) &to MAC            &none &none &none &none &none &none &none &none &none
-            &magic MAGIC 0 &kp DOT &kp H  &kp O  &kp M         &kp LSHIFT &kp LCTL         &mt LALT SPACE     &none &none &none       &none &none &none &none &none
+            &kp P          &trans  &trans &trans &trans &trans &higher   &kp LC(LA(KP_N0)) &to MAC            &none &none &none &none &none &none &none &none &none
+            &magic MAGIC 0 &kp DOT &kp H  &kp O  &kp M         &kp LSHFT &kp LCTL          &mt LALT SPACE     &none &none &none       &none &none &none &none &none
             >;
         };
 
