@@ -13,6 +13,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
+#include <dt-bindings/zmk/rgb_colors.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/rgb_colors.h>
 
@@ -68,13 +69,11 @@
                 >;
         };
 */
-
 / {
     underglow-layer {
         compatible  = "zmk,underglow-layer";
 
         lower {
-            layer-id = <LOWER>;
             bindings = <
                 ______ ______ ______ ______ ______                                                          ______ ______ ______ ______ ______
                 PURPLE   PINK   PINK   PINK   PINK   PINK                                            ______   GOLD ORANGE ORANGE ORANGE    RED
@@ -83,10 +82,10 @@
                   BLUE ______    RED    RED    RED ______ ______ ______ ______  ______ ______ ______ ______ YELLOW YELLOW YELLOW    RED   BLUE
                 ______ ______ ORANGE ORANGE ORANGE        ______  GREEN ______  ______ ______ ______        YELLOW YELLOW ORANGE    RED ______
                 >;
+            layer-id = <LOWER>;
         };
 
         photoshop {
-            layer-id = <PHOTOSHOP>;
             bindings = <
                 &ug ___  &ug ___  &ug ___ &ug ___  &ug ___                                                                      &ug ___  &ug ___  &ug ___  &ug ___  &ug ___
                 &ug ___  &ug ___  &ug ___ &ug ___  &ug ___  &ug ___                                                    &ug PINK &ug PINK &ug PINK &ug PINK &ug PINK &ug ___
@@ -95,9 +94,9 @@
                 &ug BLUE &ug ___  &ug ___ &ug ___  &ug ___  &ug ___ &ug ___ &ug ___ &ug ___  &ug ___ &ug ___   &ug ___ &ug ___  &ug ___  &ug ___  &ug ___  &ug ___  &ug BLUE
                 &ug ___  &ug ___  &ug ___ &ug ___  &ug ___          &ug ___ &ug ___ &ug ___  &ug ___ &ug GREEN &ug ___          &ug ___  &ug ___  &ug ___  &ug ___  &ug ___
                 >;
+            layer-id = <PHOTOSHOP>;
         };
         blender {
-            layer-id = <BLENDER>;
             bindings = <
                 &ug ___ &ug ___  &ug ___ &ug ___ &ug ___                                                                        &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
                 &ug ___ &ug ___  &ug ___ &ug ___ &ug ___ &ug ___                                                        &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
@@ -106,9 +105,9 @@
                 &ug ___ &ug BLUE &ug RED &ug RED &ug RED &ug ___ &ug ORANGE &ug BLUE &ug ___    &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
                 &ug ___ &ug BLUE &ug ___ &ug ___ &ug ___         &ug RED    &ug ___  &ug GREEN  &ug ___ &ug ___ &ug ___         &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
                 >;
+            layer-id = <BLENDER>;
         };
         higher {
-            layer-id = <HIGHER>;
             bindings = <
                 BLUE   BLUE   BLUE   BLUE   BLUE                                                            ______ ______ ______ ______ ______
                 PURPLE   PINK   PINK   PINK   PINK   PINK                                            ______   GOLD ORANGE ORANGE ORANGE    RED
@@ -117,29 +116,8 @@
                   BLUE ______    RED    RED    RED ______ ______ ______ ______  ______ ______ ______ ______ YELLOW YELLOW YELLOW    RED   BLUE
                 ______ ______ ORANGE ORANGE ORANGE        ______  GREEN ______  ______ ______ ______        YELLOW YELLOW ORANGE    RED ______
                 >;
+            layer-id = <HIGHER>;
         };
-//        raise {
-//            layer-id = <LAYER_Raise>;
-//            bindings = <
-//                ______ ______ ______ ______ ______                                                          ______ ______ ______ ______ ______
-//                ______ ______ ______ ______ ______ ______                                              PINK   PINK   PINK   PINK   PINK ______
-//                ______   BLUE ______   BLUE   BLUE   BLUE                                            ______ ______ ______ ______ ______   BLUE
-//                ______   BLUE ______ ______ ______   BLUE                                            ______ ______ ______ ______ ______ ______
-//                  BLUE ______ ______ ______ ______ ______ ______ ______ ______  ______ ______ ______ ______ ______ ______ ______ ______   BLUE
-//                ______ ______ ______ ______ ______        ______ ______ ______  ______  GREEN ______        ______ ______ ______ ______ ______
-//                >;
-//        };
-//        gaming {
-//            layer-id = <LAYER_Gaming>;
-//            bindings = <
-//                ______ ______ ______ ______ ______                                                          ______ ______ ______ ______ ______
-//                ______ ______ ______ ______ ______ ______                                            ______ ______ ______ ______ ______ ______
-//                ______ ______ ______ ______ ______ ______                                            ______ ______ ______ ______ ______ ______
-//                ______   TEAL ______    RED ______ ______                                            ______ ______ ______ ______ ______ ______
-//                ______   BLUE    RED    RED    RED ______ ORANGE   BLUE ______  ______ ______ ______ ______ ______ ______ ______ ______ ______
-//                ______   BLUE ______ ______ ______           RED ______ ______  ______  GREEN ______        ______ ______ ______ ______ ______
-//                >;
-//        };
     };
 };
 
@@ -380,6 +358,22 @@
 //            #binding-cells = <2>;
 //            bindings = <&to>, <&kp>;
 //        };
+        photoshop_hold: photoshop_hold {
+            compatible = "zmk,behavior-hold-tap";
+            label = "PHOTOSHOP_HOLD_TAP";
+            #binding-cells = <0>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&to PHOTOSHOP>, <&kp A>;
+        };
+        blender_hold: blender_hold {
+            compatible = "zmk,behavior-hold-tap";
+            label = "BLENDER_HOLD_TAP";
+            #binding-cells = <0>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&to BLENDER>, <&kp B>;
+        };
         blender: blender {
             compatible = "zmk,behavior-tap-dance";
             tapping-term-ms = <200>;
@@ -446,7 +440,7 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-            &layer_to_tap PHOTOSHOP A  &layer_to_tap BLENDER B &to PHOTOSHOP  &to BLENDER   &kp F5                                                                                 &kp F6 &kp F7    &kp F8   &kp F9   &kp F10
+            &photoshop_hold &blender_hold &to PHOTOSHOP  &to BLENDER   &kp F5                                                                                 &kp F6 &kp F7    &kp F8   &kp F9   &kp F10
             //&kp C_BRI_DN  &kp C_BRI_UP  &kp C_PREV  &kp C_NEXT  &kp C_PP                                                                                   &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP  &none           &kp PAUSE_BREAK
             //&kp C_BRI_DN  &kp C_BRI_UP  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PP                                                                                   &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP  &none           &kp PAUSE_BREAK
 
@@ -483,7 +477,7 @@
 //        };
 
         photoshop_layer {
-            display-name = "Photoshop";
+            display-name = "PHOTOSHOP";
             bindings = <
             &none &none &none &none &none                                                   &none &none &none &none &none
             &none &none &none &none &none &none                                       &none &none &none &none &none &none
