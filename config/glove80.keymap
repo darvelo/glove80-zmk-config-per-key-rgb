@@ -374,12 +374,12 @@
 /* Custom Defined Behaviors */
 / {
     behaviors {
-        layer_key: layer_key {
-            compatible = "zmk,behavior-tap-dance";
-            tapping-term-ms = <200>;
-            #binding-cells = <2>;
-            bindings = <&to>, <&kp>;
-        };
+//        layer_key: layer_key {
+//            compatible = "zmk,behavior-tap-dance";
+//            tapping-term-ms = <200>;
+//            #binding-cells = <2>;
+//            bindings = <&to>, <&kp>;
+//        };
         blender: blender {
             compatible = "zmk,behavior-tap-dance";
             tapping-term-ms = <200>;
