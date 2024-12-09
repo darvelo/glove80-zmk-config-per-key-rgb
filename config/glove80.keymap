@@ -475,12 +475,12 @@
         photoshop_layer {
             display-name = "Photoshop";
             bindings = <
-            &none          &none        &kp LG(T)     &kp F                   &kp LG(Y)                                                                                       &none &none &none &none &none
-            &kp DEL        &kp LG(J)    &kp LG(COMMA) &kp LA(RBRC)            &kp LA(LBRC)  &kp U                                                                       &none &none &none &none &none &none
-            &kp ESC        &kp LG(C)    &kp LG(D)     &kp SPACE               &kp LG(Z)     &kp LG(LS(Z))                                                               &none &none &none &none &none &none
-            &kp LS(M)      &kp L        &kp V         &photoshop_eraser GRV E &kp B         &kp LALT                                                                    &none &none &none &none &none &none
-            &mt LCTRL F5   &kp LGUI     &kp LG(A)     &kp R                   &kp Z         &kp LG(V)     &higher      &kp LG(S) &to MAC              &none &none &none &none &none &none &none &none &none
-            &magic MAGIC 0 &kp LG(BSPC) &kp LG(X)     &kp LG(LS(N))           &kp LG(LA(F))               &kp LC(LALT) &kp RBRC  &mt LC(LALT) RET     &none &none &none       &none &none &none &none &none
+            &none          &none        &kp LG(T)     &kp F                     &kp LG(Y)                                                                                       &none &none &none &none &none
+            &kp DEL        &kp LG(J)    &kp LG(COMMA) &kp LA(RBRC)              &kp LA(LBRC)  &kp U                                                                       &none &none &none &none &none &none
+            &kp ESC        &kp LG(C)    &kp LG(D)     &kp SPACE                 &kp LG(Z)     &kp LG(LS(Z))                                                               &none &none &none &none &none &none
+            &kp LS(M)      &kp L        &kp V         &photoshop_eraser GRAVE E &kp B         &kp LALT                                                                    &none &none &none &none &none &none
+            &mt LCTRL F5   &kp LGUI     &kp LG(A)     &kp R                     &kp Z         &kp LG(V)     &higher      &kp LG(S) &to MAC              &none &none &none &none &none &none &none &none &none
+            &magic MAGIC 0 &kp LG(BSPC) &kp LG(X)     &kp LG(LS(N))             &kp LG(LA(F))               &kp LC(LALT) &kp RBRC  &mt LC(LALT) RET     &none &none &none       &none &none &none &none &none
             >;
         };
 
