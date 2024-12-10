@@ -419,7 +419,6 @@
             #binding-cells = <2>;
             tapping-term-ms = <TAPPING_TERM_MS>;
             quick_tap_ms = <QUICK_TAP_MS>;
-            require-prior-idle-ms = <PRIOR_IDLE_MS>;
             flavor = "balanced";
             bindings = <&mo>, <&kp>;
         };
@@ -429,7 +428,6 @@
             #binding-cells = <2>;
             tapping-term-ms = <TAPPING_TERM_MS>;
             quick_tap_ms = <QUICK_TAP_MS>;
-            require-prior-idle-ms = <PRIOR_IDLE_MS>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
         };
