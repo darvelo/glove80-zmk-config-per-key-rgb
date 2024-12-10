@@ -24,6 +24,29 @@
 #define HYPER_E LC(LS(LG(LA(E))))
 #define HYPER_UP LC(LS(LG(LA(UP))))
 
+#define LEFT_HAND_KEYS      \
+      0  1  2  3  4         \
+     10 11 12 13 14 15      \
+     22 23 24 25 26 27      \
+     34 35 36 37 38 39      \
+     46 47 48 49 50 51      \
+     64 65 66 67 68
+#define                              RIGHT_HAND_KEYS \
+                                       5  6  7  8  9 \
+                                   16 17 18 19 20 21 \
+                                   28 29 30 31 32 33 \
+                                   40 41 42 43 44 45 \
+                                   58 59 60 61 62 63 \
+                                      75 76 77 78 79
+#define THUMB_KEYS          \
+                    69 52       57 74                \
+                     70 53     56 73                 \
+                      71 54   55 72
+
+#define TAPPING_TERM_MS 200
+#define QUICK_TAP_MS 220
+#define PRIOR_IDLE_MS 180
+
 //
 // Base layers.
 //
@@ -401,13 +424,33 @@
 //            tapping-term-ms = <200>;
 //            bindings = <&mt LALT DEL>, <&kp DEL>;
 //        };
-        lt_bal: lt_bal {
+//        lt_bal: lt_bal {
+//            compatible = "zmk,behavior-hold-tap";
+//            label = "LAYER_HOLD_TAP_BALANCED";
+//            #binding-cells = <2>;
+//            flavor = "balanced";
+//            tapping-term-ms = <TAPPING_TERM_MS>;
+//            bindings = <&mo>, <&kp>;
+//        };
+        thumb: thumb_with_repeat {
             compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_HOLD_TAP_BALANCED";
+            label = "THUMB_WITH_REPEAT";
             #binding-cells = <2>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
+            quick_tap_ms = <QUICK_TAP_MS>;
+            require-prior-idle-ms = <PRIOR_IDLE_MS>;
             flavor = "balanced";
-            tapping-term-ms = <200>;
             bindings = <&mo>, <&kp>;
+        };
+        thumbk: thumb_keycode_with_repeat {
+            compatible = "zmk,behavior-hold-tap";
+            label = "THUMB_KEYCODE_WITH_REPEAT";
+            #binding-cells = <2>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
+            quick_tap_ms = <QUICK_TAP_MS>;
+            require-prior-idle-ms = <PRIOR_IDLE_MS>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
         };
         layer_hold: layer_hold {
             compatible = "zmk,behavior-hold-tap";
@@ -419,13 +462,13 @@
         };
         media_prev_next: media_prev_next {
             compatible = "zmk,behavior-tap-dance";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
             #binding-cells = <0>;
             bindings = <&kp C_PREV>, <&kp C_NEXT>;
         };
         higher: higher {
             compatible = "zmk,behavior-tap-dance";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <TAPPING_TERM_MS>;
             #binding-cells = <0>;
             bindings = <&mo HIGHER>, <&to HIGHER>;
         };
@@ -443,6 +486,15 @@
 /* Automatically generated macro definitions */
 / {
     macros {
+        jetbrains_search: jetbrains_search {
+            label = "&JETBRAINS_SEARCH";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <40>;
+            wait-ms = <30>;
+            bindings = <&kp LSHFT>
+                     , <&kp LSHFT>;
+        };
     };
 };
 
@@ -475,12 +527,12 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-            &layer_hold PHOTOSHOP C_MUTE &layer_hold BLENDER C_PP &media_prev_next &kp C_VOL_DN &kp C_VOL_UP                                                                                                           &kp C_BRI_DN &kp C_BRI_UP &kp LG(LC(Q)) &kp GLOBE &kp LC(SPACE)
-            &kp EQUAL                    &kp N1                   &kp N2           &kp N3       &kp N4       &kp N5                                                                                             &kp N6 &kp N7       &kp N8       &kp N9        &kp N0    &kp MINUS
-            &kp TAB                      &kp Q                    &kp W            &kp E        &kp R        &kp T                                                                                              &kp Y  &kp U        &kp I        &kp O         &kp P     &kp BSLH
-            &kp ESC                      &kp A                    &kp S            &kp D        &kp F        &kp G                                                                                              &kp H  &kp J        &kp K        &kp L         &kp SEMI  &kp SQT
-            &kp GRAVE                    &kp Z                    &kp X            &kp C        &kp V        &kp B  &kp LGUI             &kp LCTRL      &kp LSHFT      &kp RSHFT &kp RCTRL        &kp RGUI      &kp N  &kp M        &kp COMMA    &kp DOT       &kp FSLH  &kp PG_UP
-            &magic MAGIC 0               &caps_word               &key_repeat      &kp LBRC     &kp LBKT            &lt_bal HIGHER SPACE &mt LCTRL BSPC &mt LALT DEL   &kp RALT  &lt_bal SYMB RET &mt RSHFT ESC        &kp RBKT     &kp RBRC     &to GAMING    &none     &kp PG_DN
+            &layer_hold PHOTOSHOP C_MUTE &layer_hold BLENDER C_PP &media_prev_next &kp C_VOL_DN &kp C_VOL_UP                                                                                                                   &kp C_BRI_DN &kp C_BRI_UP &kp LG(LC(Q)) &kp GLOBE &kp LC(SPACE)
+            &kp EQUAL                    &kp N1                   &kp N2           &kp N3       &kp N4       &kp N5                                                                                                     &kp N6 &kp N7       &kp N8       &kp N9        &kp N0    &kp MINUS
+            &kp TAB                      &kp Q                    &kp W            &kp E        &kp R        &kp T                                                                                                      &kp Y  &kp U        &kp I        &kp O         &kp P     &kp BSLH
+            &kp ESC                      &kp A                    &kp S            &kp D        &kp F        &kp G                                                                                                      &kp H  &kp J        &kp K        &kp L         &kp SEMI  &kp SQT
+            &kp GRAVE                    &kp Z                    &kp X            &kp C        &kp V        &kp B  &kp LGUI            &kp LCTRL          &kp LSHFT            &kp RSHFT &kp RCTRL       &kp RGUI      &kp N  &kp M        &kp COMMA    &kp DOT       &kp FSLH  &kp PG_UP
+            &magic MAGIC 0               &caps_word               &key_repeat      &kp LBRC     &kp LBKT            &thumb HIGHER SPACE &thumbk LCTRL BSPC &thumbk LALT DEL     &kp RALT  &thumb SYMB RET &mt RSHFT ESC        &kp RBKT     &kp RBRC     &to GAMING    &none     &kp PG_DN
             >;
         };
 
