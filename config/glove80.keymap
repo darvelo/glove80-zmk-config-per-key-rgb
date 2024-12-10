@@ -404,34 +404,7 @@
 /* Custom Defined Behaviors */
 / {
     behaviors {
-        // these tap dances didn't work because i had to wait until the tapping term was over to get the single tap behavior.
-        // other than that, the idea of double tapping to signal holding the tap key worked really well.
-//        ret_td_mt: ret_td_mt {
-//            compatible = "zmk,behavior-tap-dance";
-//            #binding-cells = <0>;
-//            tapping-term-ms = <200>;
-//            bindings = <&lt SYMB RET>, <&kp RET>;
-//        };
-//        spc_td_mt: spc_td_mt {
-//            compatible = "zmk,behavior-tap-dance";
-//            #binding-cells = <0>;
-//            tapping-term-ms = <200>;
-//            bindings = <&lt HIGHER SPACE>, <&kp SPACE>;
-//        };
-//        del_td_mt: del_td_mt {
-//            compatible = "zmk,behavior-tap-dance";
-//            #binding-cells = <0>;
-//            tapping-term-ms = <200>;
-//            bindings = <&mt LALT DEL>, <&kp DEL>;
-//        };
-//        lt_bal: lt_bal {
-//            compatible = "zmk,behavior-hold-tap";
-//            label = "LAYER_HOLD_TAP_BALANCED";
-//            #binding-cells = <2>;
-//            flavor = "balanced";
-//            tapping-term-ms = <TAPPING_TERM_MS>;
-//            bindings = <&mo>, <&kp>;
-//        };
+        // thumb and thumbk allow double tapping a key to get repeat on the tap key, while supporting hold triggering a different key or layer.
         thumb: thumb_with_repeat {
             compatible = "zmk,behavior-hold-tap";
             label = "THUMB_WITH_REPEAT";
