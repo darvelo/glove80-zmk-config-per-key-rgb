@@ -18,6 +18,8 @@
 #include <dt-bindings/zmk/rgb_colors.h>
 
 
+#define T(layer, keycode) &layer_hold layer keycode
+
 #define BRIUP C_BRI_UP
 #define BRIDN C_BRI_DN
 #define VOLUP C_VOL_UP
@@ -460,22 +462,6 @@
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
         };
-        photoshop_mute: photoshop_mute {
-            compatible = "zmk,behavior-hold-tap";
-            label = "PHOTOSHOP_HOLD_TAP";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <1000>;
-            bindings = <&to PHOTOSHOP>, <&kp C_MUTE>;
-        };
-        blender_pp: blender_pp {
-            compatible = "zmk,behavior-hold-tap";
-            label = "BLENDER_HOLD_TAP";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <1000>;
-            bindings = <&to BLENDER>, <&kp C_PP>;
-        };
     };
 
 };
@@ -524,12 +510,12 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-            &photoshop_mute 0 0 &blender_pp 0 0 &prev_next  &kp VOLDN &kp VOLUP                                                                                                                   &kp BRIDN &kp BRIUP &kp LOCK   &kp GLOBE &kp LANG
-            &kp EQUAL           &kp N1          &kp N2      &kp N3    &kp N4    &kp N5                                                                                                     &kp N6 &kp N7    &kp N8    &kp N9     &kp N0    &kp MINUS
-            &kp TAB             &kp Q           &kp W       &kp E     &kp R     &kp T                                                                                                      &kp Y  &kp U     &kp I     &kp O      &kp P     &kp BSLH
-            &kp TAB             &kp A           &kp S       &kp D     &kp F     &kp G                                                                                                      &kp H  &kp J     &kp K     &kp L      &kp SEMI  &kp SQT
-            &kp GRAVE           &kp Z           &kp X       &kp C     &kp V     &kp B  &kp LGUI            &kp LCTRL          &kp LSHFT            &kp RSHFT &kp RCTRL       &kp RGUI      &kp N  &kp M     &kp COMMA &kp DOT    &kp FSLH  &kp PG_UP
-            &magic MAGIC 0      &caps_word      &key_repeat &kp LBRC  &kp LBKT         &thumb HIGHER SPACE &thumbk LCTRL BSPC &thumbk LALT DEL     &kp RALT  &thumb SYMB RET &mt RSHFT ESC        &kp RBKT  &kp RBRC  &to GAMING &none     &kp PG_DN
+            T(PHOTOSHOP, C_MUTE) T(BLENDER, C_PP) &prev_next  &kp VOLDN &kp VOLUP                                                                                                                   &kp BRIDN &kp BRIUP &kp LOCK   &kp GLOBE &kp LANG
+            &kp EQUAL            &kp N1           &kp N2      &kp N3    &kp N4    &kp N5                                                                                                     &kp N6 &kp N7    &kp N8    &kp N9     &kp N0    &kp MINUS
+            &kp TAB              &kp Q            &kp W       &kp E     &kp R     &kp T                                                                                                      &kp Y  &kp U     &kp I     &kp O      &kp P     &kp BSLH
+            &kp TAB              &kp A            &kp S       &kp D     &kp F     &kp G                                                                                                      &kp H  &kp J     &kp K     &kp L      &kp SEMI  &kp SQT
+            &kp GRAVE            &kp Z            &kp X       &kp C     &kp V     &kp B  &kp LGUI            &kp LCTRL          &kp LSHFT            &kp RSHFT &kp RCTRL       &kp RGUI      &kp N  &kp M     &kp COMMA &kp DOT    &kp FSLH  &kp PG_UP
+            &magic MAGIC 0       &caps_word       &key_repeat &kp LBRC  &kp LBKT         &thumb HIGHER SPACE &thumbk LCTRL BSPC &thumbk LALT DEL     &kp RALT  &thumb SYMB RET &mt RSHFT ESC        &kp RBKT  &kp RBRC  &to GAMING &none     &kp PG_DN
             >;
         };
 
