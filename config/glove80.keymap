@@ -524,7 +524,7 @@
             &kp EQUAL             &kp N1            &kp N2     &kp N3    &kp N4    &kp N5                                                                                                         &kp N6 &kp N7    &kp N8    &kp N9   &kp N0    &kp MINUS
             &caps_word            &kp Q             &kp W      &kp E     &kp R     &kp T                                                                                                          &kp Y  &kp U     &kp I     &kp O    &kp P     &kp BSLH
             &kp TAB               &kp A             &kp S      &kp D     &kp F     &kp G                                                                                                          &kp H  &kp J     &kp K     &kp L    &kp SEMI  &kp SQT
-            &kp GRAVE             &kp Z             &kp X      &kp C     &kp V     &kp B  &kp LGUI            &mo HIGHER         &kp LSHFT            &kp RSHFT &mo HIGHER        &kp LALT        &kp N  &kp M     &kp COMMA &kp DOT  &kp FSLH  &kp PG_UP
+            &kp GRAVE             &kp Z             &kp X      &kp C     &kp V     &kp B  &kp LGUI            &mo HIGHER         &kp LSHFT            &kp RSHFT &kp RALT          &kp RGUI        &kp N  &kp M     &kp COMMA &kp DOT  &kp FSLH  &kp PG_UP
             &magic MAGIC 0        &key_repeat       &kp LBKT   &kp LBRC  &lparone         &thumbk LSHFT SPACE &thumbk LCTRL BSPC &thumbk LALT DEL     &kp RALT  &thumb HIGHER RET &thumb SYMB ESC        &rparzero &kp RBRC  &kp RBKT &kp EXCL  &kp PG_DN
             >;
         };
