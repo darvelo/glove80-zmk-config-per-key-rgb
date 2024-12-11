@@ -520,7 +520,7 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-            LH(PHOTOSHOP, C_MUTE) LH(BLENDER, C_PP) &prev_next &kp VOLDN &kp VOLUP                                                                                                                        &kp BRIDN &kp BRIUP &kp LOCK &kp GLOBE &kp LANG
+            LH(PHOTOSHOP, C_MUTE) LH(BLENDER, C_PP) &kp VOLDN  &kp VOLUP &prev_next                                                                                                                       &kp BRIDN &kp BRIUP &kp LOCK &kp GLOBE &kp LANG
             &kp EQUAL             &kp N1            &kp N2     &kp N3    &kp N4    &kp N5                                                                                                          &kp N6 &kp N7    &kp N8    &kp N9   &kp N0    &kp MINUS
             &caps_word            &kp Q             &kp W      &kp E     &kp R     &kp T                                                                                                           &kp Y  &kp U     &kp I     &kp O    &kp P     &kp BSLH
             &kp TAB               &kp A             &kp S      &kp D     &kp F     &kp G                                                                                                           &kp H  &kp J     &kp K     &kp L    &kp SEMI  &kp SQT
@@ -584,12 +584,12 @@
         blender_layer {
             display-name = "Blender";
             bindings = <
-            &kp U          &kp J   &kp I  &kp L  &kp N                                                                                     &none &none &none &none &none
-            &kp Y          &trans  &trans &trans &trans &trans                                                                       &none &none &none &none &none &none
-            &kp TAB        &trans  &trans &trans &trans &trans                                                                       &none &none &none &none &none &none
-            &kp ESC        &trans  &trans &trans &trans &trans                                                                       &none &none &none &none &none &none
-            &kp P          &trans  &trans &trans &trans &trans &higher   &mt LGUI LC(LA(KP_N0)) &to MAC            &none &none &none &none &none &none &none &none &none
-            &magic MAGIC 0 &kp DOT &kp H  &kp O  &kp M         &kp LSHFT &kp LCTL               &mt LALT SPACE     &none &none &none       &none &none &none &none &none
+            &kp U          &kp J   &kp I  &kp L  &kp N                                                                                        &none &none &none &none &none
+            &kp Y          &trans  &trans &trans &trans &trans                                                                          &none &none &none &none &none &none
+            &mt GRAVE ESC  &trans  &trans &trans &trans &trans                                                                          &none &none &none &none &none &none
+            &kp TAB        &trans  &trans &trans &trans &trans                                                                          &none &none &none &none &none &none
+            &kp P          &trans  &trans &trans &trans &trans &higher   &thumb SYMB LC(LA(KP_N0)) &to MAC            &none &none &none &none &none &none &none &none &none
+            &magic MAGIC 0 &kp DOT &kp H  &kp O  &kp M         &kp LSHFT &kp LCTL                  &mt LALT SPACE     &none &none &none       &none &none &none &none &none
             >;
         };
 
@@ -623,7 +623,7 @@
             &kp F1         &kp F2       &kp F3          &kp F4        &kp F5                                                                                     &kp F6      &kp F7      &kp F8       &kp F9  &kp F10
             &kp F11        &kp KP_DOT   &kp KP_MULTIPLY &kp KP_DIVIDE &kp KP_EQUAL &kp LPAR                                                             &none    &none       &none       &none        &none   &kp PSCRN
             &kp F12        &kp KP_MINUS &kp KP_N1       &kp KP_N2     &kp KP_N3    &kp RPAR                                                             &none    &kp HYPR(W) &kp HYPR(E) &kp HYPR(UP) &none   &kp SLCK
-            &none          &kp KP_PLUS  &kp KP_N4       &kp KP_N5     &kp KP_N6    &kp PRCNT                                                            &kp LEFT &kp DOWN    &kp UP      &kp RIGHT    &none   &none
+            &kp F9         &kp KP_PLUS  &kp KP_N4       &kp KP_N5     &kp KP_N6    &kp PRCNT                                                            &kp LEFT &kp DOWN    &kp UP      &kp RIGHT    &none   &none
             &none          &kp KP_ENTER &kp KP_N7       &kp KP_N8     &kp KP_N9    &kp COMMA &none  &trans &to MAC     &trans        &trans    &kp LGUI &none    &none       &none       &none        &none   &none
             &magic MAGIC 0 &kp KP_ENTER &kp KP_N0       &kp KP_N0     &kp KP_DOT             &trans &trans &trans      &kp LA(LSHFT) &kp LSHFT &kp LALT          &kp SPACE   &kp BSPC    &kp DEL      &kp RET &none
             >;
