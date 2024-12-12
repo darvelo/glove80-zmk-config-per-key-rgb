@@ -17,20 +17,20 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/rgb_colors.h>
 
-#define LH(layer, keycode) &layer_hold layer keycode
-#define BRIUP C_BRI_UP
-#define BRIDN C_BRI_DN
-#define VOLUP C_VOL_UP
-#define VOLDN C_VOL_DN
-#define LOCK LG(LC(Q))
-#define LANG LC(SPACE)
-
 #define HYPER LC(LS(LG(LALT)))
 #define HYPR(KC) LC(LS(LG(LA(KC))))
 
 #define HYPER_W LC(LS(LG(LA(W))))
 #define HYPER_E LC(LS(LG(LA(E))))
 #define HYPER_UP LC(LS(LG(LA(UP))))
+
+#define LH(layer, keycode) &layer_hold layer keycode
+#define BRIUP C_BRI_UP
+#define BRIDN C_BRI_DN
+#define VOLUP C_VOL_UP
+#define VOLDN C_VOL_DN
+#define LOCK LG(LC(Q))
+#define LANG LC(LS(LG(LA(SPACE))))
 
 #define LEFT_HAND_KEYS      \
       0  1  2  3  4         \
@@ -520,12 +520,12 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | BSPC  | DEL   | LALT  | | RALT  | RET   | SPACE |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-            LH(PHOTOSHOP, C_MUTE) LH(BLENDER, C_PP) &kp VOLDN  &kp VOLUP &prev_next                                                                                                                       &kp BRIDN &kp BRIUP &kp LOCK &kp GLOBE &kp LANG
-            &kp EQUAL             &kp N1            &kp N2     &kp N3    &kp N4    &kp N5                                                                                                          &kp N6 &kp N7    &kp N8    &kp N9   &kp N0    &kp MINUS
-            &caps_word            &kp Q             &kp W      &kp E     &kp R     &kp T                                                                                                           &kp Y  &kp U     &kp I     &kp O    &kp P     &kp BSLH
-            &kp TAB               &kp A             &kp S      &kp D     &kp F     &kp G                                                                                                           &kp H  &kp J     &kp K     &kp L    &kp SEMI  &kp SQT
-            &kp GRAVE             &kp Z             &kp X      &kp C     &kp V     &kp B  &kp LGUI            &kp RA(RET)        &kp LSHFT         &kp LCTRL     &kp RALT        &kp RGUI          &kp N  &kp M     &kp COMMA &kp DOT  &kp FSLH  &kp PG_UP
-            &magic MAGIC 0        &key_repeat       &kp LBKT   &kp LBRC  &lparone         &thumb HIGHER SPACE &thumbk LCTRL BSPC &thumbk LALT DEL  &kp LG(LSHFT) &thumb SYMB RET &thumbk LSHFT ESC        &rparzero &kp RBRC  &kp RBKT &kp EXCL  &kp PG_DN
+            LH(PHOTOSHOP, C_MUTE) LH(BLENDER, C_PP) &kp VOLDN  &kp VOLUP &prev_next                                                                                                                      &kp BRIDN &kp BRIUP &kp HYPR(UP) &kp LOCK &kp LANG
+            &kp EQUAL             &kp N1            &kp N2     &kp N3    &kp N4    &kp N5                                                                                                         &kp N6 &kp N7    &kp N8    &kp N9   &kp N0    &kp MINUS
+            &caps_word            &kp Q             &kp W      &kp E     &kp R     &kp T                                                                                                          &kp Y  &kp U     &kp I     &kp O    &kp P     &kp BSLH
+            &kp TAB               &kp A             &kp S      &kp D     &kp F     &kp G                                                                                                          &kp H  &kp J     &kp K     &kp L    &kp SEMI  &kp SQT
+            &kp GRAVE             &kp Z             &kp X      &kp C     &kp V     &kp B  &kp LGUI            &kp RA(RET)        &kp LSHFT        &kp LCTRL     &kp RALT        &kp RGUI          &kp N  &kp M     &kp COMMA &kp DOT  &kp FSLH  &kp PG_UP
+            &magic MAGIC 0        &key_repeat       &kp LBKT   &kp LBRC  &lparone         &thumb HIGHER SPACE &thumbk LCTRL BSPC &thumbk LALT DEL &kp LG(LSHFT) &thumb SYMB RET &thumbk LSHFT ESC        &rparzero &kp RBRC  &kp RBKT &kp EXCL  &kp PG_DN
             >;
         };
 
