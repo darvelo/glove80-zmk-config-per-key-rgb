@@ -562,21 +562,32 @@
         // alt + [ - cycle visible layers backward
         // alt + ] - cycle visible layers foreward
         // cmd + t - free transform selection
-        // cmd + backspace - fill selection
+        // alt + backspace - fill selection with chosen foreground color (the primary color selection)
+        // cmd + backspace - fill selection with chosen background color (the secondary color selection)
         // hold grave - erase with current brush
         // cmd + y  - View > Proof Colors (to see color values only)
+        // cmd + shift + n - new layer
+        // shift - make straight lines
+        // ctrl + click - brush selection
+        // F5 - brush settings
+        // ctrl + alt - click and drag to dynamically change brush/eraser size and hardness (drag left/right for brush size, up/down for hardness)
+        // shift + tool shortcut - cycle between tools of that type (between brush and mixer brush, etc.)
+        // cmd + ctrl + click - layer selection menu for layers under the mouse cursor
+        // cmd + click - select layer for topmost layer under the mouse cursor
+        // q - quick mask mode
+        // tab - toggle tools (useful for fullscreen mode)
         //
         // My custom shortcuts:
         // cmd + alt + f - Flip Canvas Horizontally
         photoshop_layer {
             display-name = "Photoshop";
             bindings = <
-            &none          &none        &kp LG(T)     &kp F                     &kp LG(Y)                                                                                       &none &none &none &none &none
-            &kp DEL        &kp LG(J)    &kp LG(COMMA) &kp LA(RBRC)              &kp LA(LBRC)  &kp U                                                                       &none &none &none &none &none &none
-            &kp ESC        &kp LG(C)    &kp LG(D)     &kp SPACE                 &kp LG(Z)     &kp LG(LS(Z))                                                               &none &none &none &none &none &none
-            &kp LS(M)      &kp L        &kp V         &photoshop_eraser GRAVE E &kp B         &kp LALT                                                                    &none &none &none &none &none &none
-            &mt LCTRL F5   &kp LGUI     &kp LG(A)     &kp R                     &kp Z         &kp LG(V)     &higher      &kp LG(S) &to MAC              &none &none &none &none &none &none &none &none &none
-            &magic MAGIC 0 &kp LG(BSPC) &kp LG(X)     &kp LG(LS(N))             &kp LG(LA(F))               &kp LC(LALT) &kp RBRC  &mt LC(LALT) RET     &none &none &none       &none &none &none &none &none
+            &kp TAB        &kp LG(LS(N)) &kp LG(X)     &kp LG(C)                 &kp LG(V)                                                                                       &none &none &none &none &none
+            &kp DEL        &kp LG(J)     &kp LG(COMMA) &kp LA(RBRK)              &kp LA(LBRK)  &kp Q                                                                       &none &none &none &none &none &none
+            &kp ESC        &kp X         &kp LG(D)     &kp SPACE                 &kp LG(Z)     &kp LG(LS(Z))                                                               &none &none &none &none &none &none
+            &mt LCTRL F5   &kp L         &kp V         &photoshop_eraser GRAVE E &kp B         &kp LALT                                                                    &none &none &none &none &none &none
+            &kp M          &kp LGUI      &kp LG(A)     &kp R                     &kp Z         &kp LG(Y)     &higher      &kp LG(S) &to MAC              &none &none &none &none &none &none &none &none &none
+            &magic MAGIC 0 &kp LA(BSPC)  &kp LG(T)     &kp F                     &kp LG(LA(F))               &kp LC(LALT) &kp LSHFT &kp RET              &none &none &none       &none &none &none &none &none
             >;
         };
 
