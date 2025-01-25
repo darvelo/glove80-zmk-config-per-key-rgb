@@ -579,6 +579,7 @@
 //        };
 
         // Photoshop
+        // ---------
         // cmd + d - deselect selection
         // cmd + j - layer via copy
         // cmd + , - hide layer
@@ -601,6 +602,7 @@
         // tab - toggle tools (useful for fullscreen mode)
         //
         // Layers
+        // ------
         // cmd + m - Curves
         // cmd + l - Levels
         // cmd + u - Hue/Saturation
@@ -610,7 +612,8 @@
         // cmd + shift + click layer - add everything in layer to the current selection
         // slash - lock transparent pixels on the layer
         //
-        // My custom shortcuts:
+        // My custom shortcuts
+        // --------------------
         // cmd + alt + f - Flip Canvas Horizontally
         // K - toggle pen pressure brush opacity (had to remove the existing K shortcut to be able to set this one)
         // ? - toggle pen pressure brush size
