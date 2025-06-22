@@ -613,6 +613,9 @@
         // -----------------
         // C - switch to painting transparent color using current brush (aka erase)
         // J - Liquify tool
+        // A - airbrush
+        // S - sketch pencils
+        // P - paint brushes
         // M - Selection Area (first subtool is Lasso)
         // comma, period - next/previous subtool
         // cmd + alt + g - clip to layer below (toggle layer as clipping mask)
@@ -632,14 +635,18 @@
         // cmd + alt + left bracket  - decrease brush hardness
         // cmd + alt + right bracket - increase brush hardness
         // cmd + j - copy and paste (layer via copy in Photoshop) (found in the "Shortcut Settings -> Category: Options -> Edit" menu)
+        //
+        // Needs
+        // -----
+        // ...
         clipstudio_layer {
             display-name = "Clip Studio Paint";
             bindings = <
             &to MAC        &kp LG(LS(N)) &kp LG(C)     &none        &kp LG(S)                                                                                                 &none &none &none &none &none
             &kp DEL        &kp LG(LSHFT) &kp LG(COMMA) &kp LA(RBKT) &kp LA(LBKT)  &kp Q                                                                                 &none &none &none &none &none &none
             &kp ESC        &kp X         &csp_sel      &kp SPACE    &kp LG(Z)     &kp LG(LS(Z))                                                                         &none &none &none &none &none &none
-            &mt LCTRL J    &kp M         &kp O         &csp_eraser  &kp B         &kp LALT                                                                              &none &none &none &none &none &none
-            &kp LG(LA(G))  &kp LSHFT     &kp LG(A)     &csp_rotate  &kp Z         &kp LG(LA(F)) &kp FSLH          &kp LC(FSLH)   &kp TAB              &none &none &none &none &none &none &none &none &none
+            &mt LCTRL J    &kp M         &kp O         &csp_eraser  &kp B         &mt LALT P                                                                            &none &none &none &none &none &none
+            &kp LG(LA(G))  &mt LSHFT S   &kp A         &csp_rotate  &kp Z         &kp LG(LA(F)) &kp FSLH          &kp LC(FSLH)   &kp TAB              &none &none &none &none &none &none &none &none &none
             &magic MAGIC 0 &kp LA(BSPC)  &kp LG(T)     &kp COMMA    &kp DOT                     &mt LG(LALT) LBKT &mt LGUI RBKT  &kp RET              &none &none &none       &none &none &none &none &none
             >;
         };
