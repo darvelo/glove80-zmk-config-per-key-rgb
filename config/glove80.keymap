@@ -64,26 +64,27 @@
 // Workflow layers.
 //
 #define PHOTOSHOP 1  // Photoshop
-#define CSP       2  // Clip Studio Paint
-#define BLENDER 3    // Blender
+#define CSP       2  // Clip Studio Paint for Mac
+#define CSPL      3  // Clip Studio Paint for Linux and Windows
+#define BLENDER 4    // Blender
 //#define BLDR2 40   // Blender 2nd layer
 //#define BLNM 50    // Blender number input layer
 //#define CODE 60    // Used for programming. Slight variation on the MAC layer.
 //
 // Utility layers.
 //
-#define SYMB 4       // symbols
-#define GAMING 5     // gaming
+#define SYMB 5       // symbols
+#define GAMING 6     // gaming
 //#define NUMS 80    // Turns num keys into numbers
 //#define MDIA 90    // media keys
 //#define MVMT 100   // Cursor movement and selection
 
 /* To deal with the situation where there is no Higher layer, to keep &higher happy */
 #ifndef HIGHER
-#define HIGHER 6     // Generic highest layer
+#define HIGHER 7     // Generic highest layer
 #endif
 
-#define MAGIC 7      // Keyboard-specific config keys
+#define MAGIC 8      // Keyboard-specific config keys
 
 
 /* Custom Device-tree */
@@ -129,6 +130,17 @@
         };
         clipstudio {
             layer-id = <CSP>;
+            bindings = <
+                &ug BLUE &ug ___ &ug ___ &ug ___ &ug ___                                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug ___  &ug ___ &ug ___ &ug ___ &ug ___         &ug ___ &ug ___ &ug ___  &ug ___ &ug ___ &ug ___         &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                >;
+        };
+        clipstudio_linux {
+            layer-id = <CSPL>;
             bindings = <
                 &ug BLUE &ug ___ &ug ___ &ug ___ &ug ___                                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
                 &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
@@ -535,12 +547,12 @@
         default_layer {
             display-name = "Mac";
             bindings = <
-            LH(PHOTOSHOP, C_MUTE) LH(BLENDER, C_PP) &kp VOLDN  &kp VOLUP &prev_next                                                                                                                      &kp BRIDN &kp BRIUP &kp HYPR(UP) &kp LOCK &kp LANG
-            LH(CSP, EQUAL)        &kp N1            &kp N2     &kp N3    &kp N4    &kp N5                                                                                                         &kp N6 &kp N7    &kp N8    &kp N9   &kp N0    &kp MINUS
-            &caps_word            &kp Q             &kp W      &kp E     &kp R     &kp T                                                                                                          &kp Y  &kp U     &kp I     &kp O    &kp P     &kp BSLH
-            &mt LSHFT TAB         &kp A             &kp S      &kp D     &kp F     &kp G                                                                                                          &kp H  &kp J     &kp K     &kp L    &kp SEMI  &kp SQT
-            &kp GRAVE             &kp Z             &kp X      &kp C     &kp V     &kp B  &kp LGUI            &kp RA(RET)        &kp LSHFT        &kp LCTRL     &kp RALT        &kp RGUI          &kp N  &kp M     &kp COMMA &kp DOT  &kp FSLH  &kp PG_UP
-            &magic MAGIC 0        &key_repeat       &kp LBKT   &kp LBRC  &lparone         &thumb HIGHER SPACE &thumbk LCTRL BSPC &thumbk LALT DEL &kp LG(LSHFT) &thumb SYMB RET &thumbk LSHFT ESC        &rparzero &kp RBRC  &kp RBKT &kp EXCL  &kp PG_DN
+            LH(CSP, C_MUTE) LH(BLENDER, C_PP) &kp VOLDN  &kp VOLUP &prev_next                                                                                                                      &kp BRIDN &kp BRIUP &kp HYPR(UP) &kp LOCK &kp LANG
+            LH(CSPL, EQUAL) &kp N1            &kp N2     &kp N3    &kp N4    &kp N5                                                                                                         &kp N6 &kp N7    &kp N8    &kp N9   &kp N0    &kp MINUS
+            &caps_word      &kp Q             &kp W      &kp E     &kp R     &kp T                                                                                                          &kp Y  &kp U     &kp I     &kp O    &kp P     &kp BSLH
+            &mt LSHFT TAB   &kp A             &kp S      &kp D     &kp F     &kp G                                                                                                          &kp H  &kp J     &kp K     &kp L    &kp SEMI  &kp SQT
+            &kp GRAVE       &kp Z             &kp X      &kp C     &kp V     &kp B  &kp LGUI            &kp RA(RET)        &kp LSHFT        &kp LCTRL     &kp RALT        &kp RGUI          &kp N  &kp M     &kp COMMA &kp DOT  &kp FSLH  &kp PG_UP
+            &magic MAGIC 0  &key_repeat       &kp LBKT   &kp LBRC  &lparone         &thumb HIGHER SPACE &thumbk LCTRL BSPC &thumbk LALT DEL &kp LG(LSHFT) &thumb SYMB RET &thumbk LSHFT ESC        &rparzero &kp RBRC  &kp RBKT &kp EXCL  &kp PG_DN
             >;
         };
 
@@ -642,12 +654,23 @@
         clipstudio_layer {
             display-name = "Clip Studio Paint";
             bindings = <
-            &to MAC        &kp LG(LS(N)) &kp LG(C)     &none        &kp LG(S)                                                                                                 &none &none &none &none &none
-            &kp DEL        &kp LG(LSHFT) &kp LG(COMMA) &kp LA(RBKT) &kp LA(LBKT)  &kp Q                                                                                 &none &none &none &none &none &none
-            &kp ESC        &kp X         &csp_sel      &kp SPACE    &kp LG(Z)     &kp LG(LS(Z))                                                                         &none &none &none &none &none &none
-            &mt LCTRL J    &kp M         &kp O         &csp_eraser  &kp B         &mt LALT P                                                                            &none &none &none &none &none &none
-            &kp LG(LA(G))  &mt LSHFT S   &kp A         &csp_rotate  &kp Z         &kp LG(LA(F)) &kp FSLH          &kp LC(FSLH)   &kp TAB              &none &none &none &none &none &none &none &none &none
-            &magic MAGIC 0 &kp LA(BSPC)  &kp LG(T)     &kp COMMA    &kp DOT                     &mt LG(LALT) LBKT &mt LGUI RBKT  &kp RET              &none &none &none       &none &none &none &none &none
+            &to MAC        &kp LG(LS(N)) &kp LG(C)     &none        &kp LG(S)                                                                                                &none &none &none &none &none
+            &kp DEL        &kp LG(LSHFT) &kp LG(COMMA) &kp LA(RBKT) &kp LA(LBKT) &kp Q                                                                                 &none &none &none &none &none &none
+            &kp ESC        &kp X         &csp_sel      &kp SPACE    &kp LG(Z)    &kp LG(LS(Z))                                                                         &none &none &none &none &none &none
+            &mt LCTRL J    &kp M         &kp O         &csp_eraser  &kp B        &mt LALT P                                                                            &none &none &none &none &none &none
+            &kp LG(LA(G))  &mt LSHFT S   &kp A         &csp_rotate  &kp Z        &kp LG(LA(F)) &kp FSLH          &kp LC(FSLH)   &kp TAB              &none &none &none &none &none &none &none &none &none
+            &magic MAGIC 0 &kp LA(BSPC)  &kp LG(T)     &kp COMMA    &kp DOT                    &mt LG(LALT) LBKT &mt LGUI RBKT  &kp RET              &none &none &none       &none &none &none &none &none
+            >;
+        };
+        clipstudio_linux_layer {
+            display-name = "Clip Studio Paint Linux";
+            bindings = <
+            &to MAC        &kp LC(LS(N)) &kp LC(C)     &none        &kp LC(S)                                                                                                &none &none &none &none &none
+            &kp DEL        &kp LC(LSHFT) &kp LC(COMMA) &kp LA(RBKT) &kp LA(LBKT) &kp Q                                                                                 &none &none &none &none &none &none
+            &kp ESC        &kp X         &csp_sel      &kp SPACE    &kp LC(Z)    &kp LC(LS(Z))                                                                         &none &none &none &none &none &none
+            &mt LCTRL J    &kp M         &kp O         &csp_eraser  &kp B        &mt LALT P                                                                            &none &none &none &none &none &none
+            &kp LC(LA(G))  &mt LSHFT S   &kp A         &csp_rotate  &kp Z        &kp LC(LA(F)) &kp FSLH          &kp LC(FSLH)    &kp TAB             &none &none &none &none &none &none &none &none &none
+            &magic MAGIC 0 &kp LA(BSPC)  &kp LC(T)     &kp COMMA    &kp DOT                    &mt LC(LALT) LBKT &mt LCTRL RBKT  &kp RET             &none &none &none       &none &none &none &none &none
             >;
         };
 
