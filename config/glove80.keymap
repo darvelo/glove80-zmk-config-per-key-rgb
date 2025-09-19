@@ -523,21 +523,21 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp LC(D)>, <&kp LC(LS(D))>;
-            mods = <(MOD_LCTRL|MOD_RCTRL)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
         // Clip Studio Paint LINUX: Transparent Brush and Eraser
         csp_eraser_l: csp_eraser_l {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp C>, <&kp E>;
-            mods = <(MOD_LCTRL|MOD_RCTRL)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
         // Clip Studio Paint LINUX: Rotate and Reset Rotation
         csp_rotate_l: csp_rotate_l {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp R>, <&kp LC(R)>;
-            mods = <(MOD_LCTRL|MOD_RCTRL)>;
+            mods = <(MOD_LCTL|MOD_RCTL)>;
         };
     };
 
