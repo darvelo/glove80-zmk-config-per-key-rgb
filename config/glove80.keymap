@@ -559,7 +559,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp LC(W)>, <&kp LC(LA(W))>;
-            mods = <(MOD_LSHFT|MOD_RSHFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
 
