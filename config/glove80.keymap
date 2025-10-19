@@ -70,24 +70,25 @@
 #define CSP       2  // Clip Studio Paint for Mac
 #define CSPL      3  // Clip Studio Paint for Linux and Windows
 #define BLNDR 4      // Blender
+#define SCLPT 5      // Blender Sculpting
 //#define BLDR2 40   // Blender 2nd layer
 //#define BLNM 50    // Blender number input layer
 //#define CODE 60    // Used for programming. Slight variation on the MAC layer.
 //
 // Utility layers.
 //
-#define SYMB 5       // symbols
-#define GAMING 6     // gaming
+#define SYMB 6       // symbols
+#define GAMING 7     // gaming
 //#define NUMS 80    // Turns num keys into numbers
 //#define MDIA 90    // media keys
 //#define MVMT 100   // Cursor movement and selection
 
 /* To deal with the situation where there is no Higher layer, to keep &higher happy */
 #ifndef HIGHER
-#define HIGHER 7     // Generic highest layer
+#define HIGHER 8     // Generic highest layer
 #endif
 
-#define MAGIC 8      // Keyboard-specific config keys
+#define MAGIC 9      // Keyboard-specific config keys
 
 
 /* Custom Device-tree */
@@ -145,7 +146,7 @@
         clipstudio_linux {
             layer-id = <CSPL>;
             bindings = <
-                &ug BLUE &ug ___ &ug ___ &ug ___ &ug ___                                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug TEAL &ug ___ &ug ___ &ug ___ &ug ___                                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
                 &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
                 &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
                 &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
@@ -157,6 +158,17 @@
             layer-id = <BLNDR>;
             bindings = <
                 &ug GOLD &ug ___ &ug ___ &ug ___ &ug ___                                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &ug ___  &ug ___ &ug ___ &ug ___ &ug ___         &ug ___ &ug ___ &ug ___  &ug ___ &ug ___ &ug ___         &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                >;
+        };
+        blender_sculpt_layer {
+            layer-id = <SCLPT>;
+            bindings = <
+                &ug PINK &ug ___ &ug ___ &ug ___ &ug ___                                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
                 &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
                 &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
                 &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
@@ -542,6 +554,13 @@
             bindings = <&kp R>, <&kp LC(R)>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
+        // Blender Sculpting Grow/Shrink Face Set
+        face_set: face_set {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LC(W)>, <&kp LC(LA(W))>;
+            mods = <(MOD_LSHFT|MOD_RSHFT)>;
+        };
     };
 
 };
@@ -699,17 +718,71 @@
             >;
         };
 
-        // needed: period/dot (median/origin point), p for parenting, n key to open/close tool menu, m to add marker in timeline and join vertices (alt+m), h for hide, j to join
+        // needed:
+        // slash
+        // period/dot (median/origin point)
+        // p for parenting
+        // n key to open/close tool menu
+        // m to add marker in timeline and join vertices (alt+m)
+        // h for hide
+        // j to join
         // alt + q - select object in sculpt mode
         blender_layer {
             display-name = "Blender";
             bindings = <
-            &to MAC        &kp J   &kp I  &kp L  &kp N                                                                                        &none &none &none &none &none
-            &kp P          &trans  &trans &trans &trans &trans                                                                          &none &none &none &none &none &none
-            &mt GRAVE ESC  &trans  &trans &trans &trans &trans                                                                          &none &none &none &none &none &none
-            &kp TAB        &trans  &trans &trans &trans &trans                                                                          &none &none &none &none &none &none
-            &kp Y          &trans  &trans &trans &trans &trans &higher   &thumb SYMB LC(LA(KP_N0)) &kp U              &none &none &none &none &none &none &none &none &none
-            &magic MAGIC 0 &kp DOT &kp H  &kp O  &kp M         &kp LSHFT &kp LCTL                  &mt LALT SPACE     &none &none &none       &none &none &none &none &none
+            &to MAC        &kp J   &kp I  &kp L  &kp N                                                                                           &none &none &none &none &none
+            &kp P          &trans  &trans &trans &kp LC(Z) &kp LC(LS(Z))                                                                   &none &none &none &none &none &none
+            &mt GRAVE ESC  &trans  &trans &trans &trans    &trans                                                                          &none &none &none &none &none &none
+            &kp TAB        &trans  &trans &trans &trans    &trans                                                                          &none &none &none &none &none &none
+            &kp Y          &trans  &trans &trans &trans    &trans &kp LALT  &thumb SYMB LC(LA(KP_N0)) &to SCLPT          &none &none &none &none &none &none &none &none &none
+            &magic MAGIC 0 &kp DOT &kp H  &kp O  &kp M            &kp LSHFT &kp LCTL                  &higher            &none &none &none       &none &none &none &none &none
+            >;
+        };
+
+        // hotkeys on the keyboard
+        // -------
+        // ctrl + w - grow face set
+        // ctrl + alt + w - shrink face set
+        // ctrl + z - undo
+        // ctrl + shift + z - redo
+
+        // things I should put on my spacemouse buttons
+        // -------
+        // shift - hold for the smooth brush
+        // blender radial menu
+
+        // things I should put on my spacemouse menus
+        // -------
+        // ctrl + z - undo
+        // ctrl + shift + z - redo
+        // a - mask edit menu
+        // shift + a - expand mask by topology
+        // shift alt a - expand mask by normals
+        // alt + w - face set edit menu
+        // shift + w - expand face set by topology
+        // shift + alt + w - expand active face set
+
+        // things I should put on my pen
+        // -------
+        // f - used for:
+        //     - brush size
+        //     - shift + f can be achieved by using the combination of f on the pen with shift on the spacemouse
+        // ctrl - used for:
+        //     - ctrl + click - expand face set by drawing
+        // right click - used for:
+        //     - brush menu
+        //     - ctrl + right click - lasso remove mask
+        //     - shift + right click - sets pivot point to the vertex under the mouse cursor
+
+        blender_sculpt_layer {
+            display-name = "Blender Sculpting";
+            bindings = <
+            &to MAC        &trans    &trans    &trans    &trans                                                                         &none &none &none &none &none
+            &trans         &face_set &kp LS(W) &kp LS(A) &trans &trans                                                            &none &none &none &none &none &none
+            &trans         &trans    &trans    &trans    &trans &trans                                                            &none &none &none &none &none &none
+            &trans         &trans    &trans    &trans    &trans &trans                                                            &none &none &none &none &none &none
+            &trans         &trans    &trans    &trans    &trans &trans &trans &trans &to BLNDR                  &none &none &none &none &none &none &none &none &none
+            &magic MAGIC 0 &trans    &trans    &trans    &trans        &trans &trans &trans                     &none &none &none       &none &none &none &none &none
             >;
         };
 
