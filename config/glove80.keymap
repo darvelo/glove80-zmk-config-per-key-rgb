@@ -781,7 +781,7 @@
             &trans         &face_set &kp LS(W) &kp LS(A) &trans &trans                                                            &none &none &none &none &none &none
             &trans         &trans    &trans    &trans    &trans &trans                                                            &none &none &none &none &none &none
             &trans         &trans    &trans    &trans    &trans &trans                                                            &none &none &none &none &none &none
-            &trans         &trans    &trans    &trans    &trans &trans &trans &trans &tog SCULPT                &none &none &none &none &none &none &none &none &none
+            &trans         &trans    &trans    &trans    &trans &trans &trans &trans &tog SCLPT                 &none &none &none &none &none &none &none &none &none
             &magic MAGIC 0 &trans    &trans    &trans    &trans        &trans &trans &trans                     &none &none &none       &none &none &none &none &none
             >;
         };
