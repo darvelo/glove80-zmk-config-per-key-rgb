@@ -743,32 +743,42 @@
         // -------
         // ctrl + w - grow face set
         // ctrl + alt + w - shrink face set
-        // ctrl + z - undo
-        // ctrl + shift + z - redo
-
-        // things I should put on my spacemouse buttons
-        // -------
-        // shift - hold for the smooth brush
-        // blender radial menu
+        // shift + w - expand face set by topology
+        // shift + a - expand mask by topology
 
         // things I should put on my spacemouse menus
         // -------
-        // ctrl + z - undo
-        // ctrl + shift + z - redo
+        // undo
+        // redo
+        // save
+        // f - used for:
+        //     - brush size
+        //     - shift + f can be achieved by using the combination of f on the pen with shift on the spacemouse
         // a - mask edit menu
         // shift + a - expand mask by topology
         // shift alt a - expand mask by normals
         // alt + w - face set edit menu
         // shift + w - expand face set by topology
         // shift + alt + w - expand active face set
+        // slash
+        // a - mask edit menu
+        // w
+        // h
+        // q
+        // e
+        // b
+        // d
+        // i
+        // j
 
-        // things I should put on my pen
+        // less critical for space mouse:
         // -------
-        // f - used for:
-        //     - brush size
-        //     - shift + f can be achieved by using the combination of f on the pen with shift on the spacemouse
-        // ctrl - used for:
-        //     - ctrl + click - expand face set by drawing
+        // c
+        // v
+        // t
+        // m
+        // l
+        // p
         // right click - used for:
         //     - brush menu
         //     - ctrl + right click - lasso remove mask
