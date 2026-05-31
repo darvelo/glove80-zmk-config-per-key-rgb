@@ -701,8 +701,8 @@
             &to MAC        &none         &kp LG(C)     &kp LG(V)    &kp LG(S)                                                                                                &none &none &none &none &none
             &kp ESC        &kp LG(LSHFT) &kp LC(FSLH)  &kp LA(RBKT) &kp LA(LBKT) &kp Q                                                                                 &none &none &none &none &none &none
             &kp DEL        &kp X         &csp_sel      &kp SPACE    &kp LG(Z)    &kp LG(LS(Z))                                                                         &none &none &none &none &none &none
-            &mt LCTRL W    &kp M         &kp O         &csp_eraser  &kp B        &kp J                                                                                 &none &none &none &none &none &none
-            &kp S          &kp P         &mt LSHFT A   &csp_rotate  &kp Z        &kp LG(LA(F)) &kp LALT          &kp LG(COMMA)  &kp TAB              &none &none &none &none &none &none &none &none &none
+            &mt LCTRL W    &kp M         &kp O         &csp_eraser  &kp P        &kp B                                                                                 &none &none &none &none &none &none
+            &kp S          &kp J         &mt LSHFT A   &csp_rotate  &kp Z        &kp LG(LA(F)) &kp LALT          &kp LG(COMMA)  &kp TAB              &none &none &none &none &none &none &none &none &none
             &magic MAGIC 0 &kp LA(BSPC)  &kp LG(T)     &kp COMMA    &kp DOT                    &mt LG(LALT) LBKT &mt LGUI RBKT  &kp RET              &none &none &none       &none &none &none &none &none
             >;
         };
@@ -712,8 +712,8 @@
             &to MAC        &none         &kp LC(C)     &kp LC(V)      &kp LC(S)                                                                                                &none &none &none &none &none
             &kp ESC        &kp LC(LSHFT) &kp LC(FSLH)  &kp LA(RBKT)   &kp LA(LBKT) &kp Q                                                                                 &none &none &none &none &none &none
             &kp DEL        &kp X         &csp_sel_l    &kp SPACE      &kp LC(Z)    &kp LC(LS(Z))                                                                         &none &none &none &none &none &none
-            &mt LCTRL W    &kp M         &kp O         &csp_eraser_l  &kp B        &kp J                                                                                 &none &none &none &none &none &none
-            &kp S          &kp P         &mt LSHFT A   &csp_rotate_l  &kp Z        &kp LC(LA(F)) &kp LALT          &kp LC(COMMA)   &kp TAB             &none &none &none &none &none &none &none &none &none
+            &mt LCTRL W    &kp M         &kp O         &csp_eraser_l  &kp P        &kp B                                                                                 &none &none &none &none &none &none
+            &kp S          &kp J         &mt LSHFT A   &csp_rotate_l  &kp Z        &kp LC(LA(F)) &kp LALT          &kp LC(COMMA)   &kp TAB             &none &none &none &none &none &none &none &none &none
             &magic MAGIC 0 &kp LA(BSPC)  &kp LC(T)     &kp COMMA      &kp DOT                    &mt LC(LALT) LBKT &mt LCTRL RBKT  &kp RET             &none &none &none       &none &none &none &none &none
             >;
         };
