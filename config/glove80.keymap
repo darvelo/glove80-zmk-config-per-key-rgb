@@ -96,12 +96,12 @@
         mylayer {
             layer-id = <LAYER_Name>;
             bindings = <
-                &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
-                &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
-                &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
-                &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___                                                  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
-                &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___  &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
-                &ug ___ &ug ___ &ug ___ &ug ___ &ug ___         &ug ___ &ug ___ &ug ___  &ug ___ &ug ___ &ug ___         &ug ___ &ug ___ &ug ___ &ug ___ &ug ___
+                &trans &trans &trans &trans &trans                                                          &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans        &trans &trans &trans  &trans &trans &trans        &trans &trans &trans &trans &trans
                 >;
         };
 */
@@ -112,101 +112,101 @@
         default_layer {
             layer-id = <MAC>;
             bindings = <
-                &trans &trans &trans &trans &trans                                                                  &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans                                                          &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
                 &trans &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans         &trans &trans &trans  &trans &trans &trans         &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans        &trans &trans &trans  &trans &trans &trans        &trans &trans &trans &trans &trans
                 >;
         };
 
         photoshop {
             layer-id = <PHOTOSHOP>;
             bindings = <
-                &ug BLUE &trans &trans &trans &trans                                                                  &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans         &trans &trans &trans  &trans &trans &trans         &trans &trans &trans &trans &trans
+                &ug BLUE &trans &trans &trans &trans                                                          &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans        &trans &trans &trans  &trans &trans &trans        &trans &trans &trans &trans &trans
                 >;
         };
         clipstudio {
             layer-id = <CSP>;
             bindings = <
-                &ug BLUE &trans &trans &trans &trans                                                                  &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans         &trans &trans &trans  &trans &trans &trans         &trans &trans &trans &trans &trans
+                &ug BLUE &trans &trans &trans &trans                                                          &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans        &trans &trans &trans  &trans &trans &trans        &trans &trans &trans &trans &trans
                 >;
         };
         clipstudio_linux {
             layer-id = <CSPL>;
             bindings = <
-                &ug TEAL &trans &trans &trans &trans                                                                  &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans         &trans &trans &trans  &trans &trans &trans         &trans &trans &trans &trans &trans
+                &ug TEAL &trans &trans &trans &trans                                                          &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans        &trans &trans &trans  &trans &trans &trans        &trans &trans &trans &trans &trans
                 >;
         };
         blender {
             layer-id = <BLNDR>;
             bindings = <
-                &ug GOLD &trans &trans &trans &trans                                                                  &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans         &trans &trans &trans  &trans &trans &trans         &trans &trans &trans &trans &trans
+                &ug GOLD &trans &trans &trans &trans                                                          &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans        &trans &trans &trans  &trans &trans &trans        &trans &trans &trans &trans &trans
                 >;
         };
         blender_sculpt_layer {
             layer-id = <SCLPT>;
             bindings = <
-                &ug PINK &trans &trans &trans &trans                                                                  &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans  &trans &trans &trans &trans         &trans &trans &trans  &trans &trans &trans         &trans &trans &trans &trans &trans
+                &ug PINK &trans &trans &trans &trans                                                          &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans   &trans &trans &trans &trans        &trans &trans &trans  &trans &trans &trans        &trans &trans &trans &trans &trans
                 >;
         };
         symbol {
             layer-id = <SYMB>;
             bindings = <
-                &ug ORANGE &trans &trans &trans &trans                                                                  &trans &trans &trans &trans &trans
-                &trans    &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans    &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans    &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans    &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans    &trans &trans &trans &trans         &trans &trans &trans  &trans &trans &trans         &trans &trans &trans &trans &trans
+                &ug ORANGE &trans &trans &trans &trans                                                          &trans &trans &trans &trans &trans
+                &trans     &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans     &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans     &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans     &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans     &trans &trans &trans &trans        &trans &trans &trans  &trans &trans &trans        &trans &trans &trans &trans &trans
                 >;
         };
         gaming {
             layer-id = <GAMING>;
             bindings = <
-                &ug GREEN &trans &trans &trans &trans                                                                  &trans &trans &trans &trans &trans
-                &trans   &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans   &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans   &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans   &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans   &trans &trans &trans &trans         &trans &trans &trans  &trans &trans &trans         &trans &trans &trans &trans &trans
+                &ug GREEN &trans &trans &trans &trans                                                          &trans &trans &trans &trans &trans
+                &trans    &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans    &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans    &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans    &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans    &trans &trans &trans &trans        &trans &trans &trans  &trans &trans &trans        &trans &trans &trans &trans &trans
                 >;
         };
         higher {
             layer-id = <HIGHER>;
             bindings = <
-                &ug PURPLE &trans &trans &trans &trans                                                                  &trans &trans &trans &trans &trans
-                &trans    &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans    &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans    &trans &trans &trans &trans &trans                                                  &trans &trans &trans &trans &trans &trans
-                &trans    &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans    &trans &trans &trans &trans         &trans &trans &trans  &trans &trans &trans         &trans &trans &trans &trans &trans
+                &ug PURPLE &trans &trans &trans &trans                                                          &trans &trans &trans &trans &trans
+                &trans     &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans     &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans     &trans &trans &trans &trans &trans                                            &trans &trans &trans &trans &trans &trans
+                &trans     &trans &trans &trans &trans &trans &trans &trans &trans  &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans     &trans &trans &trans &trans        &trans &trans &trans  &trans &trans &trans        &trans &trans &trans &trans &trans
                 >;
         };
     };
